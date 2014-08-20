@@ -2,8 +2,6 @@
 # for static content
 require 'rubygems'
 require 'sinatra/base'
-require 'haml'
-require 'redcarpet'
 
 
 class Web < Sinatra::Base
@@ -26,7 +24,7 @@ end
 
 # route to starting page (index.html)
 get "/" do
-  haml :index
+  File.read(File.join('views', 'index.html'))
 end
 
 # route to custom error page (404.html)
