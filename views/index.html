@@ -18,6 +18,7 @@
 
 			CommonWeb.Keen.Client = client
 
+
 		</script>
 
 		<!--
@@ -28,9 +29,27 @@
 
 	</head>
 	<body>
-	<img src="img/high-five.gif" alt="highfive">
-	<script>
-		CommonWeb.track();
+
+	<p>
+    <img alt="" src="img/high-five.gif" id="imgClickAndChange" onclick="changeImage()"/>
+	</p>
+
+	<script language="javascript">
+    function changeImage() {
+
+        if (document.getElementById("imgClickAndChange").src == "img/high-five.gif")
+        {
+            document.getElementById("imgClickAndChange").src = "img/high-five-2.jpeg";
+        }
+        else
+        {
+            document.getElementById("imgClickAndChange").src = "img/high-five.gif";
+        }
+    }
+
+	CommonWeb.track();
+	
 	</script>
+
 	</body>
 </html>
