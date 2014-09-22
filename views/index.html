@@ -30,25 +30,23 @@
 	</head>
 	<body>
 
-	<p>
-    <img alt="" src="img/high-five.gif" id="imgClickAndChange" onclick="changeImage()"/>
-	</p>
+    <img alt src="img/high-five.gif" id="imgClickAndChange" onclick="changeImage()" >
 
 	<script language="javascript">
     function changeImage() {
 
         if (document.getElementById("imgClickAndChange").src == "img/high-five.gif")
         {
-            document.getElementById("imgClickAndChange").src = "img/high-five-2.jpeg";
+            document.getElementById("imgClickAndChange").src = "img/high-five.gif";
         }
         else
         {
-            document.getElementById("imgClickAndChange").src = "img/high-five.gif";
+            document.getElementById("imgClickAndChange").src = "img/high-five-2.jpeg";
         }
     }
 
 	CommonWeb.track();
-	
+
 	</script>
 
 	</body>
