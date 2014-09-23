@@ -27,6 +27,10 @@ get "/" do
   File.read(File.join('views', 'index.html'))
 end
 
+get "/stats" do
+  File.read(File.join('views', 'stats.html'))
+end
+
 # route to custom error page (404.html)
 not_found do
   redirect '/404.html'
