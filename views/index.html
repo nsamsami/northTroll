@@ -24,6 +24,12 @@
 
 			CommonWeb.Keen.Client = client
 
+			var highFive = {
+				clap: "true",
+				keen: {
+				timestamp: new Date().toISOString()
+				}
+			};
 
 		</script>
 
@@ -49,6 +55,7 @@
         {
             document.getElementById("imgClickAndChange").src = "img/high-five-2.jpeg";
         }
+		client.addEvent("highFive", highFive);
     }
 
 	CommonWeb.track();

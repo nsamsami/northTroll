@@ -13,80 +13,55 @@ Keen.ready(function(){
   // Pageviews Area Chart
   // ----------------------------------------
   var pageviews_timeline = new Keen.Query("count", {
-    eventCollection: "viewed-page"
+    eventCollection: "viewed-page",
+    timeframe: "this_month",
+    interval: "weekly",
+    groupBy: "page_url"
   });
   client.draw(pageviews_timeline, document.getElementById("chart-01"), {
+    chartType: "areachart",
     title: false,
     height: 250,
     width: "auto",
     chartOptions: {
-        chartArea: {
-          height: "75%",
-          left: "10%",
-          top: "5%",
-          width: "60%"
-        },
+      chartArea: {
+        height: "85%",
+        left: "5%",
+        top: "5%",
+        width: "80%"
+      },
       isStacked: true
     }
   });
 
   var pageviews_timeline = new Keen.Query("count", {
-    eventCollection: "viewed-page"
+    eventCollection: "viewed-page",
+    groupBy: "ip_geo_info.country"
   });
-  client.draw(pageviews_timeline, document.getElementById("chart-06"), {
+  client.draw(pageviews_timeline, document.getElementById("chart-02"), {
     title: false,
     height: 250,
     width: "auto",
     chartOptions: {
         chartArea: {
-          height: "75%",
-          left: "10%",
-          top: "5%",
-          width: "60%"
+        height: "85%",
+        left: "5%",
+        top: "5%",
+        width: "100%"
         },
       isStacked: true
     }
   });
 
 
-  // ----------------------------------------
-  // Pageviews Pie Chart
-  // ----------------------------------------
-  var pageviews_static = new Keen.Query("count", {
-    eventCollection: "pageviews",
-    groupBy: "user.device_info.browser.family",
-    timeframe: {
-      start: "2014-05-01T00:00:00.000Z",
-      end: "2014-05-05T00:00:00.000Z"
-    }
-  });
-  client.draw(pageviews_static, document.getElementById("chart-02"), {
-    chartType: "piechart",
-    title: false,
-    height: 250,
-    width: "auto",
-    chartOptions: {
-        chartArea: {
-          height: "75%",
-          left: "10%",
-          top: "5%",
-          width: "60%"
-        },
-    }
-  });
 
 
   // ----------------------------------------
   // Impressions timeline
   // ----------------------------------------
   var impressions_timeline = new Keen.Query("count", {
-    eventCollection: "impressions",
-    groupBy: "ad.advertiser",
-    interval: "hourly",
-    timeframe: {
-      start: "2014-05-04T00:00:00.000Z",
-      end: "2014-05-05T00:00:00.000Z"
-    }
+    eventCollection: "viewed-page",
+    groupBy: "page_url"
   });
   client.draw(impressions_timeline, document.getElementById("chart-03"), {
     chartType: "columnchart",
@@ -112,16 +87,10 @@ Keen.ready(function(){
   // Impressions timeline (device)
   // ----------------------------------------
   var impressions_timeline_by_device = new Keen.Query("count", {
-    eventCollection: "impressions",
-    groupBy: "user.device_info.device.family",
-    interval: "hourly",
-    timeframe: {
-      start: "2014-05-04T00:00:00.000Z",
-      end: "2014-05-05T00:00:00.000Z"
-    }
+    eventCollection: "viewed-page",
+    groupBy: "referrer_info.source"
   });
   client.draw(impressions_timeline_by_device, document.getElementById("chart-04"), {
-    chartType: "columnchart",
     title: false,
     height: 250,
     width: "auto",
@@ -144,16 +113,9 @@ Keen.ready(function(){
   // Impressions timeline (country)
   // ----------------------------------------
   var impressions_timeline_by_country = new Keen.Query("count", {
-    eventCollection: "impressions",
-    groupBy: "user.geo_info.country",
-    interval: "hourly",
-    timeframe: {
-      start: "2014-05-04T00:00:00.000Z",
-      end: "2014-05-05T00:00:00.000Z"
-    }
+    eventCollection: "highFive"
   });
   client.draw(impressions_timeline_by_country, document.getElementById("chart-05"), {
-    chartType: "columnchart",
     title: false,
     height: 250,
     width: "auto",
